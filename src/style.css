@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+#container {
+    background-image: url("../assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    position: relative;
+}
+
+
+form {
+    width: 60%;
+    height: 60%;
+    background-color: #55555580;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    padding: 30px;
+    box-sizing:border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/bg.jpg");
+    background-size: cover;
+    position: absolute;
+    border-radius: 20px;
+    filter: blur(10px);
+    z-index: -500;
+    opacity: .7;
+}
+
+form label {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+#bin {
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 0.5rem;
+    border: none;
+    text-align: right;
+}
+
+#bin:focus {
+    outline: none;
+}
+
+.bin-result-text {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.bin-result-value {
+    visibility: hidden;
+    font-size: 1.3rem;
+}
+
+button {
+    width: 100%;
+    height: 4rem;
+    border: none;
+    border-radius: .4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #105d66;
+    color: white;
+    transition: background-color .5s;
+    cursor: pointer;
+    /* box-shadow: 2px 2px 5px #00000050; */
+}
+
+button:hover {
+    background-color: #2c9eab;
+}
+
+button:active {
+    box-shadow: inset 2px 2px 2px #00000050;
+}
+
+@media screen and (min-width: 740px) {
+    form {
+        width: 90%;
+        height: 90%;
+    }
+
+    form label {
+        font-size: 4rem;
+    }
+
+    .bin-result-value,
+    .bin-result-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    form {
+        width: 1000px;
+        height: 550px;
+    }
+    #bin {
+        width: 850px;
+    }
+    button {
+        width: 850px;
+    }
+}

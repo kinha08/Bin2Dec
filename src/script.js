@@ -11,6 +11,15 @@ input.onkeypress = function(event) {
 const button = document.getElementsByTagName("button");
 
 button[0].onclick = function(event) {
+    // Check if input is empty and return a alert
+    if(input.value === '') {
+        alert("Enter a binary number to convert to decimal!");
+        return;
+    }
+
+    // Get the lenght of input and convert binary 
+    // calculatin from left to right using:
+    // i * pow(2, len)
     const value = input.value;
     let len = value.length - 1;
     let sum = 0;
@@ -22,5 +31,4 @@ button[0].onclick = function(event) {
 
     result.innerHTML = sum;
     result.style.visibility = "visible";
-
 }

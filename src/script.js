@@ -53,11 +53,15 @@ button[0].onclick = function(event) {
     //    sum += parseInt(i, 10) * Math.pow(2, len);
     //    len -= 1;
     // }
-    const result = bin2Dec(input.value);
+    let result = bin2Dec(input.value);
 
-    const resultValue = document.getElementById('result');
+    // Convert result incluing dots like 1.000.000
+    console.log(result);
+    result = result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    resultValue.innerHTML = result;
-    resultValue.style.visibility = "visible";
+    const resultElement = document.getElementById('result');
+
+    resultElement.innerHTML = result;
+    resultElement.style.visibility = "visible";
     input.focus();
 }

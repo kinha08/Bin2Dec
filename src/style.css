@@ -15,10 +15,15 @@ body {
     position: relative;
 }
 
+#container h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
 
 form {
-    width: 60%;
-    height: 60%;
+    width: 65%;
+    height: 65%;
     background-color: #55555580;
     border-radius: 20px;
     position: absolute;
@@ -48,10 +53,9 @@ form::before {
 }
 
 form label {
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
 }
 
 #bin {
@@ -70,13 +74,14 @@ form label {
 
 .bin-result-text {
     font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .bin-result-value {
     visibility: hidden;
-    font-size: 1.3rem;
+    font-size: 2rem;
+    margin: 0 0 .8rem;
 }
 
 button {
@@ -104,24 +109,21 @@ button:active {
 
 @media screen and (min-width: 740px) {
     form {
-        width: 90%;
-        height: 90%;
+        width: 75%;
+        height: 75%;
     }
 
-    form label {
-        font-size: 4rem;
-    }
-
+    form label,
     .bin-result-value,
     .bin-result-text {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 
 @media screen and (min-width: 1200px) {
     form {
-        width: 1000px;
-        height: 550px;
+        width: 950px;
+        height: 450px;
     }
     #bin {
         width: 850px;

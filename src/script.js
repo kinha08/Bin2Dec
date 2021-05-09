@@ -1,11 +1,28 @@
 // Let user input only 1 and 0
 const input = document.getElementById('bin');
+let isAlerted = false;
 
-input.onkeypress = function(event) {
-    if(event.key !== "0" && event.key !== "1") {
-        return false;     
+function showAlert(msg) {
+    const alertMsg = document.getElementById('alert');
+    
+    if (!isAlerted) {
+        isAlerted = true;
+        alertMsg.textContent = msg;
+    
+        alertMsg.style.opacity = 1;
+        setTimeout(function() {
+            alertMsg.style.opacity = 0;
+            isAlerted = false;
+        }, 5000)
     }
 }
+
+input.onkeypress = function(event) {
+    if(event.keyCode !== 48 && event.keyCode !== 49) {
+        showAlert('Only 0 and 1!')
+        return false;
+    }
+ }
 
 // Convert binary to decimal
 const button = document.getElementsByTagName("button");
@@ -13,7 +30,8 @@ const button = document.getElementsByTagName("button");
 button[0].onclick = function(event) {
     // Check if input is empty and return a alert
     if(input.value === '') {
-        alert("Enter a binary number to convert to decimal!");
+        showAlert("Enter a binary number to convert to decimal!");
+        input.focus();
         return;
     }
 
@@ -31,4 +49,5 @@ button[0].onclick = function(event) {
 
     result.innerHTML = sum;
     result.style.visibility = "visible";
+    input.focus();
 }

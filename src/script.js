@@ -24,7 +24,15 @@ input.onkeypress = function(event) {
     }
  }
 
+
+
 // Convert binary to decimal
+function bin2Dec(bin) {
+    return bin.split('').map(Number).reverse().reduce((previousValue, currentValue, idx) => {
+        return previousValue + currentValue * Math.pow(2, idx);
+    }); 
+}
+
 const button = document.getElementsByTagName("button");
 
 button[0].onclick = function(event) {
@@ -38,16 +46,18 @@ button[0].onclick = function(event) {
     // Get the lenght of input and convert binary 
     // calculatin from left to right using:
     // i * pow(2, len)
-    const value = input.value;
-    let len = value.length - 1;
-    let sum = 0;
-    for(i of value) {
-       sum += parseInt(i, 10) * Math.pow(2, len);
-       len -= 1;
-    }
-    const result = document.getElementById('result');
+    // const value = input.value;
+    // let len = value.length - 1;
+    // let sum = 0;
+    // for(i of value) {
+    //    sum += parseInt(i, 10) * Math.pow(2, len);
+    //    len -= 1;
+    // }
+    const result = bin2Dec(input.value);
 
-    result.innerHTML = sum;
-    result.style.visibility = "visible";
+    const resultValue = document.getElementById('result');
+
+    resultValue.innerHTML = result;
+    resultValue.style.visibility = "visible";
     input.focus();
 }
